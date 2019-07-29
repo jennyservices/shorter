@@ -1,0 +1,37 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Shorter
+  license:
+    name: MIT
+paths:
+  /shorten:
+    post:
+      summary: Gets a User from the database
+      operationId: shorten
+      consumes: 
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - URL
+      parameters:
+        - name: long
+          in: body
+          required: true
+          description: Long URL to be shortened
+          schema:
+            $ref: '#/definitions/URL'
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/URL'
+        404:
+          description: User can't be found
+definitions:
+  URL:
+    properties:
+      addr:
+        type: string
+    required:
+      - addr

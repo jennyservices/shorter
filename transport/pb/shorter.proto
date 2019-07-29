@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+package pb;
+
+service Shorter { rpc Shorten(URL) returns (URL); }
+message URL { string addr = 1; }
